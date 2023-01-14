@@ -30,6 +30,6 @@ class CreateRegistrationCredentialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration_credetntials');
+        Schema::dropIfExists('registration_credentials');
     }
 }
