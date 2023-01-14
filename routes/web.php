@@ -24,6 +24,7 @@ use App\Http\Controllers\Test;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\WhatsappMessagingController;
+use App\Models\RollTransaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -117,7 +118,6 @@ Route::middleware(["auth", "verified"])
                     ->prefix("/roll-transactions")
                     ->group(
                         function () {
-                            Route::get("/", "index")->name("index");
                             Route::get("/put-away", "putAway")->name("putAway");
                             Route::post("/put-away", "putAwayTransaction")->name("putAwayTransaction");
                         }
@@ -152,13 +152,19 @@ Route::middleware(["auth", "verified"])
                     [
                         "controller" => InvoiceController::class,
                         "prefix" => "/report/invoices",
-                        "as" => "invoices."
+                        "as" => "report.invoices."
                     ],
                     function () {
                         Route::get("/", "index")->name("index");
                         Route::get("/{type}/{id}", "invoicPdf")->name("invoicPdf");
                     }
                 );
+
+                Route::get("/report/roll-trannsactions", [RollTransactionController::class, "index"])->name("report.roll.transactions.index");
+
+
+
+
 
                 // Route::controller(PaymentController::class)
                 //     ->name("payments.")

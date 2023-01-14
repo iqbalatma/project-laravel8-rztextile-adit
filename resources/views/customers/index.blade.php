@@ -1,12 +1,12 @@
 <x-dashboard.layout title="{{ $title }}" description="{{ $description }}">
-    <ul class="nav nav-tabs mb-4">
+    {{-- <ul class="nav nav-tabs mb-4">
         <li class="nav-item">
             <a class="nav-link @if (Request::input('type')=='all' || is_null(Request::input('type'))) active @endif" aria-current="page" href="{{ route('customers.index',['type'=>'all']) }}">All</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link @if (Request::input('type')=='rfm')active @endif" href="{{ route('customers.index',['type'=>'rfm']) }}">RFM Point</a>
-        </li>
-    </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @if (Request::input('type')=='rfm')active @endif" href="{{ route('customers.index',['type'=>'rfm']) }}">RFM Point</a>
+    </li>
+    </ul> --}}
 
     @if (Request::input('type')=='all' || is_null(Request::input('type')))
     <div class="card mb-4">

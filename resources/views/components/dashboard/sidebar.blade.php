@@ -48,6 +48,18 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
+                            <a href="{{ route('users.index') }}" class="sidebar-link">
+                                <i class="fa-solid fa-users-gear"></i>
+                                <span>User Management</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('customers.index') }}" class="sidebar-link">
+                                <i class="fa-solid fa-users-between-lines"></i>
+                                <span>Customer</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item">
                             <a href="{{ route('units.index') }}" class="sidebar-link">
                                 <i class="fa-solid fa-scale-unbalanced-flip"></i>
                                 <span>Unit</span>
@@ -78,23 +90,6 @@
             @endcanany
 
             @canany(['isSuperAdmin', 'isAdmin', 'isCashier'])
-            <li class="sidebar-title">User And Customer</li>
-            <li class="sidebar-item">
-                <a href="{{ route('customers.index') }}" class="sidebar-link">
-                    <i class="fa-solid fa-users-between-lines"></i>
-                    <span>Customer</span>
-                </a>
-            </li>
-            @can('isSuperAdmin')
-            <li class="sidebar-item">
-                <a href="{{ route('users.index') }}" class="sidebar-link">
-                    <i class="fa-solid fa-users-gear"></i>
-                    <span>User Management</span>
-                </a>
-            </li>
-            @endcan
-
-
             <li class="sidebar-title">Transaction</li>
             <li class="sidebar-item">
                 <a href="{{ route('shopping.index') }}" class="sidebar-link">
@@ -103,7 +98,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('invoices.index') }}" class="sidebar-link">
+                <a href="{{ route('report.invoices.index') }}" class="sidebar-link">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <span>Report</span>
                 </a>
@@ -136,12 +131,6 @@
             </li>
             @cannot('isCashier')
             <li class="sidebar-item">
-                <a href="{{ route('roll.transactions.index') }}" class="sidebar-link">
-                    <i class="fa-solid fa-right-left"></i>
-                    <span>Roll Transaction</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
                 <a href="{{ route('restock.create') }}" class="sidebar-link">
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     <span>Restock</span>
@@ -159,6 +148,12 @@
 
             @canany(['isSuperAdmin', 'isAdmin'])
             <li class="sidebar-title">Promotion</li>
+            <li class="sidebar-item">
+                <a href="{{ route('customers.index',['type' => 'rfm']) }}" class="sidebar-link">
+                    <i class="fa-solid fa-users-line"></i>
+                    <span>Segmen Customer</span>
+                </a>
+            </li>
             <li class="sidebar-item">
                 <a href="{{ route('whatsapp.messaging.index') }}" class="sidebar-link">
                     <i class="fa-solid fa-comments"></i>

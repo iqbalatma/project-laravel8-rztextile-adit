@@ -25,7 +25,7 @@
                     <input type="number" min="0" class="form-control" id="quantity_unit" name="quantity_unit" placeholder="Enter quantity unit" required>
                 </div>
                 <div class="col-12">
-                    <a href="{{ route('roll.transactions.index') }}" class="btn btn-danger"><i class="fa-solid fa-square-xmark"></i> Cancel</a>
+                    <a href="{{ route('report.roll.transactions.index') }}" class="btn btn-danger"><i class="fa-solid fa-square-xmark"></i> Cancel</a>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                 </div>
             </form>

@@ -18,7 +18,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <form action="{{ route('roll.transactions.index') }}">
+                    <form action="{{ route('report.roll.transactions.index') }}">
                         <div class="row">
                             <div class="col-md-8">
                                 <input id="bday-month" class="form-control" type="month" name="month_year" value="{{ request()->input('month_year') ??'' }}" required />
@@ -37,7 +37,7 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-10">
-                            <form action="{{ route('roll.transactions.index') }}">
+                            <form action="{{ route('report.roll.transactions.index') }}">
                                 <div class="input-group mb-3">
                                     <input type="hidden" name="type" value="{{ request()->input('type', 'all') }}">
                                     @if (request()->input('month_year'))
@@ -49,7 +49,7 @@
                             </form>
                         </div>
                         <div class="col-md-2">
-                            <form action="{{ route('roll.transactions.index') }}">
+                            <form action="{{ route('report.roll.transactions.index') }}">
                                 <input type="hidden" name="type" value="{{ request()->input('type', 'all') }}">
                                 <button class="btn btn-primary">Reset</button>
                             </form>
@@ -59,19 +59,38 @@
             </div>
 
             <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link @if ($type=='all') active @endif" aria-current="page" href="{{ route('roll.transactions.index',['type'=>'all']) }}">All</a>
+                <ul class="nav nav-tabs mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{{ route('report.invoices.index') }}">Invoices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('report.roll.transactions.index') }}">Roll Transaction</a>
+                    </li>
+                </ul>
+                {{-- <li class="nav-item">
+                    <a class="nav-link @if (request()->input('type')=='all' || is_null(request()->input('type')) ) active @endif" aria-current="page" href="{{ route('invoices.index',['type'=>'all']) }}">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if ($type=='restock') active @endif" href="{{ route('roll.transactions.index',['type'=>'restock']) }}">Restock</a>
+                    <a class="nav-link @if (request()->input('type')=='not-paid-off') active @endif" href="{{ route('invoices.index',['type'=>'not-paid-off']) }}">Not Paid Off</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if ($type=='sold') active @endif" href="{{ route('roll.transactions.index',['type'=>'sold']) }}">Sold</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link @if ($type=='broken') active @endif" href="{{ route('roll.transactions.index',['type'=>'broken']) }}">Broken</a>
-                </li>
+                    <a class="nav-link @if (request()->input('type')=='paid-off') active @endif" href="{{ route('invoices.index',['type'=>'paid-off']) }}">Paid Off</a>
+                </li> --}}
             </ul>
+            {{-- <ul class="nav nav-tabs"> --}}
+            {{-- <li class="nav-item">
+                    <a class="nav-link @if ($type=='all') active @endif" aria-current="page" href="{{ route('roll.transactions.index',['type'=>'all']) }}">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if ($type=='restock') active @endif" href="{{ route('roll.transactions.index',['type'=>'restock']) }}">Restock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if ($type=='sold') active @endif" href="{{ route('roll.transactions.index',['type'=>'sold']) }}">Sold</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @if ($type=='broken') active @endif" href="{{ route('roll.transactions.index',['type'=>'broken']) }}">Broken</a>
+            </li> --}}
+            {{-- </ul> --}}
 
 
             @if ($rollTransactions->count() == 0)
