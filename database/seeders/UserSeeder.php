@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Database\Factories\CustomerFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
                 "address"   => "selakau",
                 "phone"     => "+62895351172040",
                 "role_id"   => "1",
+                "email_verified_at" => Carbon::now()
             ],
             [
                 "id_number" => "",
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
                 "address"   => "bandung",
                 "phone"     => "",
                 "role_id"   => "1",
+                "email_verified_at" => Carbon::now()
             ],
         ];
 
