@@ -16,21 +16,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // $data = [
-        //     [
-        //         "id_number" => "6101071602990002",
-        //         "name"      => "iqbal atma muliawan",
-        //         "email"     => "iqbalatma@gmail.com",
-        //         "password"  => Hash::make("admin"),
-        //         "address"   => "selakau",
-        //         "phone"     => "+62895351172040",
-        //         "role_id"   => "1",
-        //     ]
-        // ];
+        $data = [
+            [
+                "id_number" => "6101071602990002",
+                "name"      => "iqbal atma muliawan",
+                "email"     => "iqbalatma@gmail.com",
+                "password"  => Hash::make("admin"),
+                "address"   => "selakau",
+                "phone"     => "+62895351172040",
+                "role_id"   => "1",
+            ]
+        ];
 
-        // foreach ($data as $key => $item) {
-        //     User::create($item);
-        // }
+        foreach ($data as $key => $item) {
+            User::create($item);
+        }
 
         User::factory()->count(30)->customer()->create();
     }
