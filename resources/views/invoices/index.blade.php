@@ -72,8 +72,8 @@
                         <th>Capital</th>
                         <th>Bill</th>
                         <th>Profit</th>
-                        <th>Paid Amount</th>
-                        <th>Bill Left</th>
+                        {{-- <th>Paid Amount</th> --}}
+                        {{-- <th>Bill Left</th> --}}
                         <th>Customer</th>
                         <th>Admin</th>
                         <th>Is Paid Off</th>
@@ -88,8 +88,8 @@
                             <td class="text-nowrap">{{ formatToRupiah($invoice->total_capital) }}</td>
                             <td class="text-nowrap">{{ formatToRupiah($invoice->total_bill) }}</td>
                             <td class="text-nowrap">{{ formatToRupiah($invoice->total_profit) }}</td>
-                            <td class="text-nowrap">{{ formatToRupiah($invoice->total_paid_amount) }}</td>
-                            <td class="text-nowrap">{{ formatToRupiah($invoice->bill_left) }}</td>
+                            {{-- <td class="text-nowrap">{{ formatToRupiah($invoice->total_paid_amount) }}</td> --}}
+                            {{-- <td class="text-nowrap">{{ formatToRupiah($invoice->bill_left) }}</td> --}}
                             <td>{{ $invoice->customer->name??"-" }}</td>
                             <td>{{ $invoice->user->name??"-" }}</td>
                             <td>
