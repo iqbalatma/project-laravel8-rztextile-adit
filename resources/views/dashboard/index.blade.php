@@ -42,13 +42,51 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4">
                 <div class="card-body">
-                    Bill Left {{ $currentMonth }}
+                    Total Customer
                     <br>
-                    {{ $total_bill_left }}
+                    {{ $total_customer }} customers
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="{{ route('report.invoices.index') }}">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Segmentation Customer
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Segmentation Name</th>
+                                <th scope="col">Total Customer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Most Valueable Customer</td>
+                                <td>{{ isset($dataRFM["customers"]["m"]) ? count($dataRFM["customers"]["mvc"]):0 }} customers</td>
+                            </tr>
+                            <tr>
+                                <td>Most Growable Customer</td>
+                                <td>{{ isset($dataRFM["customers"]["mgc"]) ?count($dataRFM["customers"]["mgc"]):0 }} customers</td>
+                            </tr>
+                            <tr>
+                                <td>Migration Customer</td>
+                                <td>{{ isset($dataRFM["customers"]["m"]) ? count($dataRFM["customers"]["m"]):0 }} customers</td>
+                            </tr>
+                            <tr>
+                                <td>Bellow Zero Customer</td>
+                                <td>{{ isset($dataRFM["customers"]["bz"]) ? count($dataRFM["customers"]["bz"]):0 }} customers</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -67,7 +105,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-6">
+        <div class="col-xl-12">
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
@@ -82,7 +120,6 @@
                                 <th>Customer</th>
                                 <th>Capital</th>
                                 <th>Profit</th>
-                                <th>Bill Left</th>
                             </thead>
                             <tbody>
                                 @foreach ($latestInvoices as $key => $invoice)
@@ -92,42 +129,6 @@
                                     <td>{{ $invoice->customer->name??"-" }}</td>
                                     <td>{{ formatToRupiah($invoice->total_capital) }}</td>
                                     <td>{{ formatToRupiah($invoice->total_profit) }}</td>
-                                    <td>{{ formatToRupiah($invoice->bill_left) }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6">
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fa-solid fa-money-check-dollar"></i>
-                    Latest Payments
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive mt-4">
-                        <table class="table align-middle">
-                            <thead>
-                                <th>No</th>
-                                <th>Code</th>
-                                <th>Admin</th>
-                                <th>Payment Type</th>
-                                <th>Paid Amount</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($latestPayments as $key => $payment)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $payment->code }}</td>
-                                    <td>{{ $payment->user->name ?? "-" }}</td>
-                                    <td>
-                                        <span class="badge rounded-pill @if($payment->payment_type=='cash')bg-success @else bg-primary @endif">{{ $payment->payment_type }}</span>
-
-                                    </td>
-                                    <td>{{ formatToRupiah($payment->paid_amount) }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
