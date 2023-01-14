@@ -25,7 +25,16 @@ class UserSeeder extends Seeder
                 "address"   => "selakau",
                 "phone"     => "+62895351172040",
                 "role_id"   => "1",
-            ]
+            ],
+            [
+                "id_number" => "",
+                "name"      => "admin",
+                "email"     => "admin@gmail.com",
+                "password"  => Hash::make("admin"),
+                "address"   => "bandung",
+                "phone"     => "",
+                "role_id"   => "1",
+            ],
         ];
 
         foreach ($data as $key => $item) {
