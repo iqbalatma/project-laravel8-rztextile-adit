@@ -91,7 +91,7 @@
     </div>
     @else
 
-    @if (isset($customer))
+    {{-- @if (isset($customer)) --}}
     <div class="card mb-4">
         <div class="card-header">
             <i class="fa-solid fa-users-between-lines"></i>
@@ -289,7 +289,7 @@
                     </tbody>
                 </table>
 
-                {{ $customers->links() }}
+                {{-- {{ $customers->links() }} --}}
             </div>
         </div>
     </div>
@@ -331,13 +331,13 @@
                     </tbody>
                 </table>
 
-                {{ $customers->links() }}
+                {{-- {{ $customers->links() }} --}}
             </div>
         </div>
     </div>
-    @else
+    {{-- @else
     <x-data-not-found></x-data-not-found>
-    @endif
+    @endif --}}
 
     @endif
 

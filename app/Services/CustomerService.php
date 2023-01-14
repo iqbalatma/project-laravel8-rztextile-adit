@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\AppData;
@@ -93,8 +94,4 @@ class CustomerService
     {
         return (new CustomerRepository())->deleteCustomerById($id);
     }
-
-
 }
-
-?>

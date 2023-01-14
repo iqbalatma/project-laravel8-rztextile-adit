@@ -84,7 +84,7 @@
                         {{-- <th>Bill Left</th> --}}
                         <th>Customer</th>
                         <th>Admin</th>
-                        <th>Is Paid Off</th>
+                        {{-- <th>Is Paid Off</th> --}}
                         <th>Last Updated Time</th>
                         <th>Action</th>
                     </thead>
@@ -100,13 +100,13 @@
                             {{-- <td class="text-nowrap">{{ formatToRupiah($invoice->bill_left) }}</td> --}}
                             <td>{{ $invoice->customer->name??"-" }}</td>
                             <td>{{ $invoice->user->name??"-" }}</td>
-                            <td>
+                            {{-- <td>
                                 @if ($invoice->is_paid_off)
                                 <span class="badge bg-success">Paid Off</span>
                                 @else
                                 <span class="badge bg-danger">Not Paid Off</span>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>{{ $invoice->updated_at }}</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-flex">
@@ -114,9 +114,9 @@
                                         <i class="fa-solid fa-download"></i>
                                     </a>
 
-                                    @if (!$invoice->is_paid_off)
+                                    {{-- @if (!$invoice->is_paid_off)
                                     <a href="{{ route('payments.createByInvoiceId', $invoice->id) }}" class="btn btn-primary"><i class="fa-solid fa-money-bill"></i></a>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </td>
                         </tr>

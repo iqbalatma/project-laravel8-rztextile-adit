@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\AppData;
@@ -24,8 +25,7 @@ class InvoiceRepository
         string|bool $month = false,
         array $columns = ["*"],
         $perPage = AppData::DEFAULT_PERPAGE
-    ): ?object
-    {
+    ): ?object {
         $invoice = Invoice::with(["customer", "user"])
             ->select($columns)
             ->orderBy("created_at", "DESC");
@@ -49,8 +49,8 @@ class InvoiceRepository
                         $query->whereHas(
                             "invoiceCustomer",
                             function ($subQuery) use ($year, $month) {
-                                    $subQuery->whereYear("created_at", "=", $year)->whereMonth("created_at", "=", $month);
-                                }
+                                $subQuery->whereYear("created_at", "=", $year)->whereMonth("created_at", "=", $month);
+                            }
                         );
                     }
                 });
@@ -180,5 +180,3 @@ class InvoiceRepository
             ->get();
     }
 }
-
-?>
