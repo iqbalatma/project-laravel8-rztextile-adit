@@ -8,7 +8,7 @@
                     {{ $total_invoices }}
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="{{ route('invoices.index') }}">View Details</a>
+                    <a class="small text-white stretched-link" href="{{ route('report.invoices.index') }}">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     {{ $total_capital }}
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="{{ route('invoices.index') }}">View Details</a>
+                    <a class="small text-white stretched-link" href="{{ route('report.invoices.index') }}">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     {{ $total_profit }}
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="{{ route('invoices.index') }}">View Details</a>
+                    <a class="small text-white stretched-link" href="{{ route('report.invoices.index') }}">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     {{ $total_bill_left }}
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="{{ route('invoices.index') }}">View Details</a>
+                    <a class="small text-white stretched-link" href="{{ route('report.invoices.index') }}">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
