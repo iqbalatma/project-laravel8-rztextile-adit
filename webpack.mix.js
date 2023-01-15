@@ -33,6 +33,4 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/application/reports/index.js", "public/js/reports")
     .js("resources/js/application/rolls/create.js", "public/js/rolls")
     .js("resources/js/application/rolls/index.js", "public/js/rolls")
-    .sass("resources/sass/app.scss", "public/css")
-    .copyDirectory("vendor/tinymce/tinymce", "public/js/tinymce")
-    .copyDirectory("resources/mazer/dist/assets", "public/mazer/assets");
+    .sass("resources/sass/app.scss", "public/css");

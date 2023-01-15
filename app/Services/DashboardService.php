@@ -25,7 +25,6 @@ class DashboardService
             "latestInvoices"  => $invoiceRepository->getDataLatestInvoice(),
             "latestPayments"  => (new PaymentRepository())->getDataLatestPayment(),
             "leastRolls"      => (new RollRepository())->getLeastRoll(),
-            "dataRFM" => (new RFMService())->getRFM()
         ];
     }
 }

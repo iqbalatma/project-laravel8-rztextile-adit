@@ -190,6 +190,7 @@
                         <th>Last Updated Time</th>
                     </thead>
                     <tbody>
+                        @if (isset($customers["mvc"]))
                         @foreach ($customers["mvc"] as $key => $customer)
                         <tr>
                             {{-- <td>{{ $customers->firstItem()+$key }}</td> --}}
@@ -205,6 +206,7 @@
                             <td>{{ $customer->customer->updated_at ?? "-" }}</td>
                         </tr>
                         @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -231,6 +233,7 @@
                         <th>Last Updated Time</th>
                     </thead>
                     <tbody>
+                        @if (isset($customers["mgc"]))
                         @foreach ($customers["mgc"] as $key => $customer)
                         <tr>
                             <td>{{ $key+1 }}</td>
@@ -245,6 +248,7 @@
                             <td>{{ $customer->customer->updated_at ?? "-" }}</td>
                         </tr>
                         @endforeach
+                        @endif
                     </tbody>
                 </table>
 
@@ -272,6 +276,7 @@
                         <th>Last Updated Time</th>
                     </thead>
                     <tbody>
+                        @if (isset($customers["m"]))
                         @foreach ($customers["m"] as $key => $customer)
                         <tr>
                             <td>{{ $key+1 }}</td>
@@ -286,6 +291,7 @@
                             <td>{{ $customer->customer->updated_at ?? "-" }}</td>
                         </tr>
                         @endforeach
+                        @endif
                     </tbody>
                 </table>
 
@@ -314,6 +320,7 @@
                         <th>Last Updated Time</th>
                     </thead>
                     <tbody>
+                        @if (isset($customers["bz"]))
                         @foreach ($customers["bz"] as $key => $customer)
                         <tr>
                             <td>{{ $key+1 }}</td>
@@ -328,6 +335,7 @@
                             <td>{{ $customer->customer->updated_at ?? "-" }}</td>
                         </tr>
                         @endforeach
+                        @endif
                     </tbody>
                 </table>
 

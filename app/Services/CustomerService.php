@@ -31,6 +31,11 @@ class CustomerService
             "cardTitleM"   => "Migration customer",
             "cardTitleBZ"  => "Below zero customer",
             "description"  => "Data customer with rfm point",
+            "customers"      => [],
+            "recencyPoint"   => [],
+            "frequencyPoint" => [],
+            "moneteryPoint"  => [],
+            "rfmPoint"       => [],
         ];
         if (request()->input("type") == "rfm") {
             $customer = (new RFMService())->getRFM();

@@ -1,6 +1,5 @@
 window._ = require("lodash");
 import jQuery from "jquery";
-import "./../sbadmin/src/js/scripts";
 import Swal from "sweetalert2";
 import "@selectize/selectize";
 import Chart from "chart.js/auto";

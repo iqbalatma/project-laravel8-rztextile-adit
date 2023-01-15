@@ -25,7 +25,9 @@ class WhatsappMessagingStoreRequest extends FormRequest
     {
         return [
             "customer" => "",
-            "message" => "required"
+            "message" => "required",
+            "type" => "",
+            "segmentation" => ""
         ];
     }
 }

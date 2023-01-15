@@ -17,8 +17,11 @@ class WhatsappMessagingController extends Controller
 
     public function store(WhatsappMessagingService $service, WhatsappMessagingStoreRequest $request)
     {
-
-        $sent = $service->sendMessage($request->validated());
+        if (isset($request->validated()["type"]) && $request->validated()["type"] == "blast") {
+            $sent = $service->sendBlast($request->validated());
+        } else {
+            $sent = $service->sendMessage($request->validated());
+        }
 
         $redirect = redirect()
             ->route("whatsapp.messaging.index");

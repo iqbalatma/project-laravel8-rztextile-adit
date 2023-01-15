@@ -23,4 +23,19 @@ trait WablasTrait
         $response = json_decode($response->getBody(), true);
         return $response["status"];
     }
+
+    public static function sendBlast($payload)
+    {
+        $token = config("wablas.token");
+        $baseUrl = config("wablas.base_url");
+
+        $client = new Client([
+            "base_uri" => $baseUrl,
+            "timeout" => 5,
+            "headers" => [
+                "Authorization" => $token,
+                "Content-Type" => "application/json"
+            ],
+        ]);
+    }
 }

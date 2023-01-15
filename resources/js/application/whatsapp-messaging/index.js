@@ -8,15 +8,15 @@ $(document).ready(function () {
             .replace(/'/g, "&#39;");
     }
 
-    $("#promotion").on("change", function () {
+    $(".promotion").on("change", function () {
         const promotionId = $(this).val();
         $.ajax({
             method: "GET",
             url: `/ajax/promotion-messages/${promotionId}`,
         })
             .done(function (response) {
-                $("#message").html(response.data.message);
-                $("#message-input").val(response.data.message);
+                $(".message").html(response.data.message);
+                $(".message-input").val(response.data.message);
             })
             .fail();
     });
