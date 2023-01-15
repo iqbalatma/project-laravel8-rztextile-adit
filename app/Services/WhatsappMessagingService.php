@@ -40,11 +40,14 @@ class WhatsappMessagingService
     {
         $dataRFM = (new RFMService())->getRFM();
         if (isset($dataRFM["customers"][$requestedData["segmentation"]])) {
-            $dataSet = collect($dataRFM["customers"][$requestedData["segmentation"]])->map(function ($item) {
-                return $item["customer"]["phone"];
+            $dataSet = collect($dataRFM["customers"][$requestedData["segmentation"]])->map(function ($item) use ($requestedData) {
+                return [
+                    "phone"   => $item["customer"]["phone"],
+                    "message" => $requestedData["message"]
+                ];
             });
-            $requestedData["phone"] = $dataSet;
-            return WablasTrait::sendBlast($requestedData);
+
+            return WablasTrait::sendBlast(["data" => $dataSet]);
         }
     }
 

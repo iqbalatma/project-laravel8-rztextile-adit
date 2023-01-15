@@ -84,10 +84,18 @@
                         <label for="segmentation" class="form-label">Select Customer Segmentation</label>
                         <select class="form-select segmentation" id="segmentation" name="segmentation" aria-label="Default select example">
                             <option selected disabled>Open this select menu</option>
-                            <option value="mvc">Most Valueable Customer</option>
-                            <option value="mgc">Most Growable Customer</option>
-                            <option value="m">Migration Customer</option>
-                            <option value="bz">Bellow Zero Customer</option>
+                            @if(isset($dataRFM["customers"]["mvc"]) && count($dataRFM["customers"]["mvc"]) > 0)
+                            <option value="mvc">Most Valueable Customer | {{ count($dataRFM["customers"]["mvc"]) }} customer</option>
+                            @endif
+                            @if(isset($dataRFM["customers"]["mgc"]) && count($dataRFM["customers"]["mgc"]) > 0)
+                            <option value="mgc">Most Growable Customer | {{ count($dataRFM["customers"]["mgc"]) }} customer</option>
+                            @endif
+                            @if(isset($dataRFM["customers"]["m"]) && count($dataRFM["customers"]["m"]) > 0)
+                            <option value="m">Migration Customer {{ count($dataRFM["customers"]["m"]) }} customer</option>
+                            @endif
+                            @if(isset($dataRFM["customers"]["bz"]) && count($dataRFM["customers"]["bz"]) > 0)
+                            <option value="bz">Bellow Zero Customer {{ count($dataRFM["customers"]["bz"]) }} customer</option>
+                            @endif
                         </select>
                     </div>
                     <div class="mb-3">

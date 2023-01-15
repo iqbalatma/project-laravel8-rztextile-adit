@@ -1,0 +1,19 @@
+{
+    "name": "iqbalatma/rfm-calculation",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Iqbalatma\\RFMCalculation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "iqbalatma",
+            "email": "iqbalatma@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^9.47",
+        "nesbot/carbon": "^2.65"
+    }
+}

@@ -26,6 +26,7 @@ trait WablasTrait
 
     public static function sendBlast($payload)
     {
+
         $token = config("wablas.token");
         $baseUrl = config("wablas.base_url");
 
@@ -37,5 +38,9 @@ trait WablasTrait
                 "Content-Type" => "application/json"
             ],
         ]);
+
+        $response = $client->post("/api/v2/send-message",  ["body" => json_encode($payload)]);
+        $response = json_decode($response->getBody(), true);
+        return $response["status"];
     }
 }
