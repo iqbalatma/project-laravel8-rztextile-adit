@@ -15,6 +15,11 @@
             {{ $title }}
         </div>
         <div class="card-body">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+                <a href="{{ route('customers.create') }}" type="button" class="btn btn-primary">
+                    <i class="fa-solid fa-square-plus"></i>
+                    Add New Customers</a>
+            </div>
             {{-- Form Filter and Search --}}
             <div class="row">
                 <div class="col-md-8">
@@ -98,12 +103,6 @@
             Summary
         </div>
         <div class="card-body">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                <a href="{{ route('customers.create') }}" type="button" class="btn btn-primary">
-                    <i class="fa-solid fa-square-plus"></i>
-                    Add New Customers</a>
-            </div>
-
             <div class="accordion mt-4" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
